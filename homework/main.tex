@@ -1,0 +1,96 @@
+\documentclass[10pt]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{picinpar,graphicx,bm}
+\usepackage{booktabs}
+\usepackage{diagbox}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{subfigure}
+\usepackage{cases}
+\usepackage{booktabs}
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+\renewcommand\refname{参考文献}
+
+\usepackage{listings}
+\usepackage{xcolor}
+% 定义可能使用到的颜色
+\definecolor{CPPLight}  {HTML} {686868}
+\definecolor{CPPSteel}  {HTML} {888888}
+\definecolor{CPPDark}   {HTML} {262626}
+\definecolor{CPPBlue}   {HTML} {4172A3}
+\definecolor{CPPGreen}  {HTML} {487818}
+\definecolor{CPPBrown}  {HTML} {A07040}
+\definecolor{CPPRed}    {HTML} {AD4D3A}
+\definecolor{CPPViolet} {HTML} {7040A0}
+\definecolor{CPPGray}  {HTML} {B8B8B8}
+\lstset{
+    columns=fixed,    
+   % numbers=left,                                        % 在左侧显示行号
+    frame=none,                                          % 不显示背景边框
+    backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+    keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+    numberstyle=\footnotesize\color{darkgray},           % 设定行号格式
+    commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+    stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+    showstringspaces=false,                              % 不显示字符串中的空格
+    language=c++,                                        % 设置语言
+    morekeywords={alignas,continute,friend,register,true,alignof,decltype,goto,
+    reinterpret_cast,try,asm,defult,if,return,typedef,auto,delete,inline,short,
+    typeid,bool,do,int,signed,typename,break,double,long,sizeof,union,case,
+    dynamic_cast,mutable,static,unsigned,catch,else,namespace,static_assert,using,
+    char,enum,new,static_cast,virtual,char16_t,char32_t,explict,noexcept,struct,
+    void,export,nullptr,switch,volatile,class,extern,operator,template,wchar_t,
+    const,false,private,this,while,constexpr,float,protected,thread_local,
+    const_cast,for,public,throw,std,size_t,__global__,__device__,__host__},
+    emph={map,set,multimap,multiset,unordered_map,unordered_set,
+    unordered_multiset,unordered_multimap,vector,string,list,deque,
+    array,stack,forwared_list,iostream,memory,shared_ptr,unique_ptr,
+    random,bitset,ostream,istream,cout,cin,endl,move,default_random_engine,
+    uniform_int_distribution,iterator,algorithm,functional,bing,numeric,},
+    emphstyle=\color{CPPViolet}, 
+    frame=shadowbox,
+    basicstyle=\footnotesize\ttfamily,
+    tabsize=4,
+}
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}  
+
+
+%layout
+\usepackage{calc} 
+\usepackage{titlesec}
+\setlength\textwidth{7in} 
+\setlength\textheight{9in} 
+\setlength\oddsidemargin{(\paperwidth-\textwidth)/2 - 1in}
+\setlength\topmargin{(\paperheight-\textheight -\headheight-\headsep-\footskip)/2 - 1.5in}
+
+\title{计算机前沿技术与工程方法概论 \hspace{2pt}\hspace{2pt} \begin{large}----- \hspace{2pt} 人体测量 \end{large} }
+\author{11821095 葛林林}
+\begin{document}
+\maketitle
+\section{研究背景与意义}
+随着现代科技的发展和生活水平的提高，人们对于产品的人性化需求也越来越高，因此产品的人性化设计成为设计高质量产品过程中需要重视的因素之一。人性化设计的产品能够增加舒适度和减少工伤数量。
+\par 人体测量是对人体的尺寸、形状、长度以及工作能力进行测量，它是人体科学的一个重要的分支，其中人体外形的尺寸数据是人体测量中最重要的组成部分，可以用来作为产品工效学设计和空间布局设计的基本技术依据。人体测量的应用涵盖了与人相关的各个领域，如服装号型设计、建筑装修设计、家具设计、产品造型设计、机械制造、交通工具座舱设计、公共设施设计、医疗工程、人体仿真等。近年来，随着数字媒体产业的迅速发展，高精细的人体模型数据还在人机交互、虚拟现实、三维影视特效、三维游戏等中扮演着极为重要的角色。因此，人体测量技术得到了世界各国的高度重视和深入研究。
+\newpage
+\section{国内外研究现状}
+传统的人体尺寸数据库主要是采用人体测量尺测量得到。众所周知，人工测量存在主观性强、误差随机性大、效率低和可重复性差的不足，并且测量结果缺乏完整的三维人体信息，其应用范围非常有限。近年来，随着各种三维扫描与测量设备的普及，人体测量逐渐从传统的尺寸测量向完整的三维人体外形扫描和测量发展\upcite{measurement1}，并开始建立相应的三维人体模型数据库。与传统的人体测量尺寸相比，三维人体模型数据中所蕴涵的信息更为丰富，其应用领域和范围也更加宽广。
+\par CAESAR（Civilian American and European Surface Anthropometry Resource）是国际上第一个大型三维人体测量项目[Robinette1999]，项目分别采用Cyberware WB4和Vitronic三维扫描仪对北美和欧洲地区的年龄在18-65岁之间的共4400个样本进行了三维人体扫描，如图1所示，并建立相应的三维人体模型数据库。随后，欧美和部分亚洲国家陆续开展了SizeUK、 SizeUSA、SizeFrench、SizeSweden、SizeKorea、SizeThailand等项目。这些项目均以三维扫描技术作为模型获取手段。我国目前的《中国成年人人体尺寸》标准建立于20年前。2005年，中国标准化研究院开始使用三维扫描仪对全国2万多个未成年进行了人体三维扫描，建立了中国未成年人三维人体模型数据库；2013年，中国标准化研究院开始使用三维扫描仪进行中国第二次成年人人体扫描和尺寸测量工作，准备建立中国成年人三维人体模型数据库。此外，国内研究人员和商业公司还陆续采用三维人体扫描仪开展过一些中小规模的三维人体测量项目，例如东华大学服装学院、北京服装学院、恒源祥集团等。
+\par 目前，三维人体模型获取主要采用三维扫描仪或RGBD相机。三维扫描仪基于激光测距或结构光原理[Anguelov2005, Hasler2009]，其优势在于鲁棒性强、扫描分辨率高。最新的扫描仪其理论测量精度可达0.2mm [Artec3D]，非常适合于静态刚体的外形获取，如机械零件、产品外形、静态文物等。但是，三维扫描仪的一个显著不足是测量时间较长。例如，目前成熟的三维扫描仪扫描整个人体最快也需要10秒左右。众所周知，人体是非刚体，即使是专业模特，也难以在长达数秒的扫描时间内保持姿势完全静止。正因如此，在人像摄影中，快门时间通常设定在数十分之一秒、百分之一秒内甚至更高以保证拍摄对象的清晰。因此，传统的三维人体扫描结果应为不同角度(获取方向)、不同时间(10秒内)和不同姿态(10秒或更长时间内小幅运动)的多个人体外形的混合，必然会存在原始数据误差、点云配准误差、表面重建误差等一系列误差，从而对最终获取的三维人体模型的精度产生较大影响。此外，由于需要相对较长的扫描时间，这种方式难以获得时空一致的人体表面纹理。RGBD相机是近年来出现并得到普及的三维信息获取和体感交互设备，代表性的设备是微软的Kinect[Newcombe2011]。由于集成了红外深度相机并采用硬件加速，Kinect具有实时性好、成本低廉的优点，并在面向游戏和数字娱乐的快速人体建模中得到应用[Tong2012]。然而，RGBD相机的获取分辨率低、数据的噪声大；此外，采用RGBD相机进行多角度的完整人体扫描，仍然需要至少3秒时间[Chen2014]。因此，重建的人体模型精度较低，尚不能满足高精度人体建模的需求。
+随着数字成像技术的快速发展，我们已经可以方便地获取千万像素级别甚至更高的数字照片。在这些照片中，人体表面的一些细节，如皮肤上的皱纹、凹凸、色斑、毛发等，可以表现得淋漓尽致。这提示我们在可控的漫射光环境下，如果实现多台相机在多个角度同步拍摄，那么我们就可以获得人体模型的瞬间投影，实现人体模型的“刚体”采集，避免传统扫描方法中存在的时间和姿态不同步的问题，并可以获得时空一致的表面纹理。这提示我们可以基于高分辨率照片、采用同步多双目立体视觉的方法实现高精度人体模型的重建[Seitz2006, Starck2007]。
+\par 但是，在大量高分辨率图像条件下，基于多双目立体视觉的高效、高精度和鲁棒三维重建仍然是一个具有挑战性的问题，仍然存在弱纹理匹配困难、点云恢复效率低、大量点云配准精度差、点云重构效率和精度不高等一系列难题。因此，基于同步多双目立体视觉的高精度人体建模的相关研究，不仅可以发展和完善立体视觉和数字几何处理中的相关理论和方法，高效地建立高精度人体模型；而且相关硬件和软件系统的研究和开发，可以形成一种全新的三维扫描系统原型，该系统可以在瞬间获取非刚体外形，克服传统三维扫描设备采集时间长、所获取的数据时空不一致的问题。此外，基于多双目立体视觉的高精度人体建模的研究，还是构建高精度人体模型数据库的基础和关键技术，不仅在服装、建筑、家居、制造、交通等重要领域有着广泛应用，同时在医疗工程、人体仿真、人机交互、虚拟现实、三维影视动画、三维游戏等产业中扮演着极为重要的角色。
+
+\section{科学问题与关键技术}
+\subsection{引言}
+
+\subsection{基于双目的三维重建技术简介}
+
+\subsection{基于多目的三维重建技术简介}
+
+\section{未来展望}
+
+
+\begin{thebibliography}{1}
+\bibitem{measurement1}	张文斌, 肖平, 杨子田,等. 人体测量高新技术——三维人体扫描技术的应用和发展[C]// 2006/2007中国纺织工业技术进步研究报告. 2006.
+\end{thebibliography}
+
+\end{document}
